@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h3>Detail Pengguna</h3>
+  <ul>
+    <li>Email: {{ pengguna.email }}</li>
+    <li>Alamat 1: {{ pengguna.address_1 }}</li>
+    <li>Kota: {{ pengguna.city }}</li>
+    <li>Provinsi: {{ pengguna.state }}</li>
+    <li>Bergabung: {{ pengguna.tanggal_join }}</li>
+  </ul>
+{% endblock %}

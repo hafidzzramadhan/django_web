@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <hr>
+  <h4>Daftar Pengguna</h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Email</th><th>Alamat 1</th><th>Kota</th><th>Provinsi</th><th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pengguna in list_pengguna %}
+      <tr>
+        <td>{{ pengguna.email }}</td>
+        <td>{{ pengguna.address_1 }}</td>
+        <td>{{ pengguna.city }}</td>
+        <td>{{ pengguna.state }}</td>
+        <td>
+          <a href="{% url 'data_entry:view_pengguna' pengguna.id %}" class="btn btn-info btn-sm">View</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
