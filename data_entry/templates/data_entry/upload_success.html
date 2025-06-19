@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h3>Upload Berhasil!</h3>
+  <p>Nama file: {{ filename }}</p>
+  <a href="{% url 'data_entry:upload_file' %}" class="btn btn-secondary">Upload lagi</a>
+{% endblock %}
+

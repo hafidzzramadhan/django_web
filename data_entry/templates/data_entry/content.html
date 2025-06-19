@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Halaman Konten</h3>
+
+<!-- Form Author -->
+<form method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label>Author:</label>
+    <select class="form-control" name="author">
+      <option value="{{ email }}">{{ email }}</option>
+    </select>
+  </div>
+</form>
+
+<!-- Tabel Daftar Pengguna -->
+<h4 class="mt-4">Daftar Pengguna</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Alamat</th>
+      <th>Kota</th>
+      <th>Provinsi</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for pengguna in list_pengguna %}
+    <tr>
+      <td>{{ pengguna.email }}</td>
+      <td>{{ pengguna.address_1 }}</td>
+      <td>{{ pengguna.city }}</td>
+      <td>{{ pengguna.state }}</td>
+      <td>
+        <a href="{% url 'data_entry:viewdata' pengguna.id %}" class="btn btn-success btn-sm">View</a>
+        <a href="{% url 'data_entry:updatedata' pengguna.id %}" class="btn btn-primary btn-sm">Edit</a>
+        <a href="{% url 'data_entry:deletedata' pengguna.id %}" class="btn btn-danger btn-sm">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

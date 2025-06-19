@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Hapus Pengguna</h2>
+<p>Apakah kamu yakin ingin menghapus <strong>{{ pengguna.email }}</strong>?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+    <a href="{% url 'data_entry:content' %}" class="btn btn-secondary">Batal</a>
+</form>
+{% endblock %}

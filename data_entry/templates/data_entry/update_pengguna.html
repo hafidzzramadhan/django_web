@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Edit Pengguna</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+    <a href="{% url 'data_entry:content' %}" class="btn btn-secondary">Batal</a>
+</form>
+{% endblock %}

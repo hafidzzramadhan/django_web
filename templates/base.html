@@ -7,8 +7,32 @@
 </head>
 <body>
   <div class="container mt-4">
+    
+    <!-- Komponen Navigasi -->
+    <ul class="nav nav-tabs mb-4">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'data_entry:set_pengguna' %}">Beranda</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'data_entry:photo_list' %}">Lihat Upload</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'data_entry:search_pengguna' %}">Cari Pengguna</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'data_entry:upload_file' %}">Upload File</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'data_entry:content' %}">Content</a>
+      </li>
+    </ul>
+
     {% block content %}{% endblock %}
+
   </div>
 </body>
 </html>
-2

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Daftar File yang Diupload</h2>
+
+<ul>
+  {% for file in files %}
+    <li><a href="{{ file.url }}" target="_blank">{{ file.name }}</a></li>
+  {% empty %}
+    <li>Tidak ada file yang diupload.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

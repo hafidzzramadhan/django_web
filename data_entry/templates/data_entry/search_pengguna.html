@@ -1,0 +1,17 @@
+<h2>Cari Pengguna berdasarkan Kota dan Provinsi</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Cari</button>
+</form>
+
+{% if results %}
+    <h3>Hasil Pencarian:</h3>
+    <ul>
+        {% for pengguna in results %}
+            <li>{{ pengguna.email }} - {{ pengguna.city }} - {{ pengguna.state }}</li>
+        {% endfor %}
+    </ul>
+{% elif request.method == 'POST' %}
+    <p>Tidak ada hasil ditemukan.</p>
+{% endif %}
